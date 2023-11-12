@@ -7,12 +7,6 @@ export default class ErrorRepository {
   }
 
   translate(code) {
-    let error;
-    if (this.errors.has(code)) {
-      error = this.errors.get(code);
-    } else {
-      error = 'Unknown error';
-    }
-    return error;
+    return this.errors.get(code) || 'Unknown error';
   }
 }

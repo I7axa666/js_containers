@@ -14,12 +14,8 @@ export default class Settings {
 
   getSettings() {
     const result = new Map();
-    this.defaultSettings.forEach((value, key) => {
-      if (this.userSettings.get(key) !== undefined) {
-        result.set(key, this.userSettings.get(key));
-      } else {
-        result.set(key, value);
-      }
+    this.userSettings.forEach((value, key) => {
+      result.set(key, value || this.defaultSettings.get(key));
     });
     return result;
   }

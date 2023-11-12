@@ -16,10 +16,6 @@ export default class Team {
   }
 
   toArray() {
-    const result = [];
-    this.members.forEach((person) => {
-      result.push({ name: person.name, type: person.type });
-    });
-    return result;
+    return Array.from(this.members);
   }
 }
